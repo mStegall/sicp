@@ -1,0 +1,63 @@
+* Chapter 1
+** Exercise 1
+Evaluate the following expressions:
+10
+# 10
+(+ 5 3 4)
+# 12
+(- 9 1)
+# 8
+(/ 6 2)
+# 3
+(+ (* 2 4) (- 4 6))
+# 6
+(define a 3)
+(define b (+ a 1))
+(+ a b (* a b))
+# 19
+(= a b)
+# false
+(if (and (> b a) (< b (* a b)))
+    b
+    a)
+# 4
+(cond ((= a 4) 6)
+      ((= b 4) (+ 6 7 a))
+      (else 25))
+# 16
+(+ 2 (if (> b a) b a))
+# 6
+(* (cond ((> a b) a)
+         ((< a b) b)
+         (else -1))
+   (+ a 1))
+# 16
+** 2
+#+BEGIN_SRC clojure
+  (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5)))))
+     (* 3 (- 6 2) (- 2 7)))
+#+END_SRC
+
+#+RESULTS:
+: -37/150
+** 3
+
+#+BEGIN_SRC clojure :results value
+  (use `clojure.math.numeric-tower)
+  
+  (defn square [x] (expt x 2))
+
+  (defn sumSquares
+    [num1 num2 num3]
+    (- 
+     (+ (square num1) (square num2) (square num3))
+     (square (min num1 num2 num3))))
+
+  (sumSquares 6 3 4)
+#+END_SRC
+
+#+begin_src clojure :results value
+  (def small-map {:a 2 :b 4 :c 8})
+  (:b small-map)
+#+end_src
+

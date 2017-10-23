@@ -1,0 +1,11 @@
+* Exercise
+Observe that our model of evaluation allows for combinations whose operators are compound expressions. Use this observation to describe the behavior of the following procedure:
+
+#+BEGIN_SRC racket
+(define (a-plus-abs-b a b)
+  ((if (> b 0) + -) a b))
+#+END_SRC
+
+* Answer
+
+When b is positive we add its value to a. When it is negative we subtract it, since absolute value is taking the negative when the number is negative this is the same as adding the absolute value.
